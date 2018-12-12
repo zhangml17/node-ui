@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: node-ui-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: node-ui
+    spec:
+      containers:
+        - name: node-ui-demo
+          image: {{.image}}
+          ports:
+            - containerPort: 3000
